@@ -11,7 +11,7 @@ class Item_List():
     def __init__(self, items, items_per_screen=3):
         self.items = items
         self.items_per_screen = items_per_screen
-        self.draw_lines_and_text(items, items_per_screen)
+        self.draw_lines_and_text()
 
     def draw_lines_and_text(self):
         horiz_line = "./img/ui/horiz_line.bmp"
