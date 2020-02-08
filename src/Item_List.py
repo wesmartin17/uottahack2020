@@ -31,11 +31,11 @@ class Item_List():
         self.textNImg.WriteAll()
 
     def select_up(self):
-        selected = selected - 1
-        if selected < 0:
-            selected = len(items)-1
+        self.selected = self.selected - 1
+        if self.selected < 0:
+            self.selected = len(self.items)-1
 
     def select_down(self):
-        selected = selected + 1
-        if selected > len(items):
-            selected = 0
+        self.selected = self.selected + 1
+        if self.selected > len(self.items):
+            self.selected = 0
