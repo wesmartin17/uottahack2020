@@ -1,5 +1,6 @@
 from papirus import PapirusTextPos
 import Item_List as IL
+import RPi.GPIO as GPIO
 
 
 def main():
