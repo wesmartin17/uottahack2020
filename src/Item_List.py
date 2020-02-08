@@ -13,15 +13,15 @@ class Item_List():
 
     def draw_lines_and_text(self, items, num_lines):
         horiz_line = "./img/ui/horiz_line.bmp"
-
+        # LINES
         for i in range(num_lines):
-            h = 128/num_lines * i
+            h = 128/num_lines * (i+1)
             self.textNImg.AddImg(horiz_line, 0, h, (128, 1),
                                  Id="Line{}".format(str(i)))
-
+        # TEXT
         for i in items:
             h = 128/num_lines * len(items)
-            self.textNImg.AddText(i, 0, h, Id=i)
+            self.textNImg.AddText(i, h, 10, Id=i)
 
     def show(self):
         self.textNImg.WriteAll()
