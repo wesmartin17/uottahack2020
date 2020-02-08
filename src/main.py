@@ -28,7 +28,7 @@ def main():
         if GPIO.input(SW3) == False:
             print("button 3 pressed")
         if GPIO.input(SW1) == False:
-            IL.Item_List().draw_lines_and_text(["Hello", "world", "dog"], 3)
+            IL.Item_List(["Hello", "world", "dog"], 3).show()
         sleep(0.1)
 
 
