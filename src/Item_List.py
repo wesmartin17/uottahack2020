@@ -19,9 +19,12 @@ class Item_List():
             self.textNImg.AddImg(horiz_line, 0, h, (128, 1),
                                  Id="Line{}".format(str(i)))
         # TEXT
-        for i in items:
-            h = 128/num_lines * len(items)
-            self.textNImg.AddText(i, h, 10, Id=i)
+        for i in range(items):
+            invert = False
+            if i % 2:
+                invert = True
+            h = 128/num_lines * i
+            self.textNImg.AddText(items[i], 10, h, Id=i, invert=invert)
 
     def show(self):
         self.textNImg.WriteAll()
