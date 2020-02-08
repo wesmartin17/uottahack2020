@@ -27,8 +27,10 @@ def main():
             sys.exit()
         if GPIO.input(SW4) == False:
             menu.select_down()
+            menu.show()
         if GPIO.input(SW3) == False:
             menu.select_up()
+            menu.show()
         sleep(0.1)
 
 
