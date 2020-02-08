@@ -28,9 +28,11 @@ def main():
         if GPIO.input(SW4) == False:
             print("select down pressed")
             menu.select_down()
+            print(menu.selected)
         if GPIO.input(SW3) == False:
             print("select up pressed")
             menu.select_up()
+            print(menu.selected)
         sleep(0.1)
 
 
