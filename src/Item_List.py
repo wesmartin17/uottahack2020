@@ -16,11 +16,12 @@ class Item_List():
 
         for i in range(num_lines):
             h = 128/num_lines * i
-            textNImg.AddImg("/path/to/image", 0, h, Id="Line{}".format(str(i)))
+            self.textNImg.AddImg("/path/to/image", 0, h,
+                                 Id="Line{}".format(str(i)))
 
         for i in self.items:
             h = 128/num_lines * i
-            textNImg.AddText(i, 0, h, Id=i)
+            self.textNImg.AddText(i, 0, h, Id=i)
 
     def show(self):
         textNImg.WriteAll()
