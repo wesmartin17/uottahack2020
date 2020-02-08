@@ -1,5 +1,5 @@
 from papirus import PapirusTextPos
-import ui.Item_List as IL
+import Item_List as IL
 
 
 def main():
