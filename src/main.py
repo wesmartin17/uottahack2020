@@ -17,7 +17,8 @@ def main():
     GPIO.setup(SW3, GPIO.IN)
     GPIO.setup(SW4, GPIO.IN)
 
-    menu = IL.Item_List(["Hello", "world", "dog"], 4).show()
+    menu = IL.Item_List(["Hello", "world", "dog"], 4)
+    menu.show()
 
     while True:
         if (GPIO.input(SW1) == False) and (GPIO.input(SW2) == False):
