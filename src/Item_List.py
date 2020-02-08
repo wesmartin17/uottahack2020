@@ -20,7 +20,7 @@ class Item_List():
                                  Id="Line{}".format(str(i)))
 
         for i in items:
-            h = 128/num_lines * i
+            h = 128/num_lines * len(items)
             self.textNImg.AddText(i, 0, h, Id=i)
 
     def show(self):
