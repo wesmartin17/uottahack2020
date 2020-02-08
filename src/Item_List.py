@@ -5,14 +5,13 @@ class Item_List():
 
     items = []
     textNImg = PapirusComposite(False)
-    num_lines = 0
 
     def __init__(self, items, items_per_screen=3):
         self.items = items
         self.num_lines = items_per_screen
         self.draw_lines_and_text(items_per_screen)
 
-    def draw_lines_and_text(self):
+    def draw_lines_and_text(self, num_lines):
         horiz_line = "./img/ui/horiz_line.bmp"
 
         for i in range(num_lines):
