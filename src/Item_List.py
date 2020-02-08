@@ -5,6 +5,7 @@ class Item_List():
 
     items = []
     textNImg = PapirusComposite(False)
+    selected = 0
 
     def __init__(self, items, items_per_screen=3):
         self.items = items
@@ -21,10 +22,20 @@ class Item_List():
         # TEXT
         for i in range(len(items)):
             invert = False
-            if i % 2:
+            if i == self.selected:
                 invert = True
-            h = 128/num_lines * i
+            h = (128/num_lines * i) + 10
             self.textNImg.AddText(items[i], 10, h, Id=i, invert=invert)
 
     def show(self):
         self.textNImg.WriteAll()
+
+    def select_up(self):
+        selected = selected - 1
+        if selected < 0:
+            selected = len(items)-1
+
+    def select_down(self):
+        selected = selected + 1
+        if selected > len(items):
+            selected = 0

@@ -17,6 +17,8 @@ def main():
     GPIO.setup(SW3, GPIO.IN)
     GPIO.setup(SW4, GPIO.IN)
 
+    menu = IL.Item_List(["Hello", "world", "dog"], 4).show()
+
     while True:
         if (GPIO.input(SW1) == False) and (GPIO.input(SW2) == False):
             write_text(papirus, "Exiting ...", SIZE)
@@ -24,11 +26,9 @@ def main():
             papirus.clear()
             sys.exit()
         if GPIO.input(SW4) == False:
-            print("button 4 pressed")
+            menu.select_down()
         if GPIO.input(SW3) == False:
-            print("button 3 pressed")
-        if GPIO.input(SW1) == False:
-            IL.Item_List(["Hello", "world", "dog"], 4).show()
+            menu.select_up()
         sleep(0.1)
 
 
