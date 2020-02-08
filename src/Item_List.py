@@ -31,14 +31,18 @@ class Item_List():
             self.textNImg.AddText(items[i], 10, h, Id=i, invert=invert)
         self.textNImg.WriteAll()
 
+    def redraw(self):
+        self.textNImg = PapirusComposite(False)
+        self.draw_lines_and_text()
+
     def select_up(self):
         self.selected = self.selected - 1
         if self.selected < 0:
             self.selected = len(self.items)-1
-        self.draw_lines_and_text()
+        self.redraw()
 
     def select_down(self):
         self.selected = self.selected + 1
-        if self.selected > len(self.items):
+        if self.selected >= len(self.items):
             self.selected = 0
-        self.draw_lines_and_text()
+        self.redraw()
