@@ -36,15 +36,15 @@ class Item_List():
         self.textNImg.UpdateText(newID, invert=True)
 
     def select_up(self):
-        old = selected
+        old = self.selected
         self.selected = self.selected - 1
         if self.selected < 0:
             self.selected = len(self.items)-1
-        self.redraw_text(old, selected)
+        self.redraw_text(old, self.selected)
 
     def select_down(self):
-        old = selected
+        old = self.selected
         self.selected = self.selected + 1
         if self.selected >= len(self.items):
             self.selected = 0
-        self.redraw_text(old, selected)
+        self.redraw_text(old, self.selected)
