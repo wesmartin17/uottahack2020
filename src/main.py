@@ -18,7 +18,6 @@ def main():
     GPIO.setup(SW4, GPIO.IN)
 
     menu = IL.Item_List(["Hello", "world", "dog"], 4)
-    menu.show()
 
     while True:
         if (GPIO.input(SW1) == False) and (GPIO.input(SW2) == False):
@@ -27,11 +26,11 @@ def main():
             papirus.clear()
             sys.exit()
         if GPIO.input(SW4) == False:
+            print("select down pressed")
             menu.select_down()
-            menu.show()
         if GPIO.input(SW3) == False:
+            print("select up pressed")
             menu.select_up()
-            menu.show()
         sleep(0.1)
 
 
