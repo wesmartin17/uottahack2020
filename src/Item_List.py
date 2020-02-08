@@ -16,7 +16,7 @@ class Item_List():
 
         for i in range(num_lines):
             h = 128/num_lines * i
-            self.textNImg.AddImg(horiz_line, 0, h,
+            self.textNImg.AddImg(horiz_line, 0, h, (1, 128),
                                  Id="Line{}".format(str(i)))
 
         for i in items:
