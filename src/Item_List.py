@@ -24,16 +24,16 @@ class Item_List():
                                  Id="Line{}".format(str(i)))
         # TEXT
         for i in range(len(items)):
-            invert = False
+            txt = items[i]
             if i == self.selected:
-                invert = True
+                txt = "> "+txt
             h = (128/num_lines * i) + 10
-            self.textNImg.AddText(items[i], 10, h, Id=i, invert=invert)
+            self.textNImg.AddText(items[i], 10, h, Id=i)
         self.textNImg.WriteAll()
 
     def redraw_text(self, oldID, newID):
-        self.textNImg.UpdateText(oldID, self.items[oldID], invert=False)
-        self.textNImg.UpdateText(newID, self.items[newID], invert=True)
+        self.textNImg.UpdateText(oldID, self.items[oldID])
+        self.textNImg.UpdateText(newID, "> "+self.items[newID])
 
     def select_up(self):
         old = self.selected
