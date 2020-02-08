@@ -8,7 +8,6 @@ class Item_List():
     num_lines = 0
 
     def __init__(self, items, items_per_screen=3):
-        super().__init__()
         self.items = items
         self.num_lines = items_per_screen
         self.draw_lines_and_text(items_per_screen)
