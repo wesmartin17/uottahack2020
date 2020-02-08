@@ -32,8 +32,8 @@ class Item_List():
         self.textNImg.WriteAll()
 
     def redraw_text(self, oldID, newID):
-        self.textNImg.UpdateText(oldID, invert=False)
-        self.textNImg.UpdateText(newID, invert=True)
+        self.textNImg.UpdateText(oldID, self.items[oldID], invert=False)
+        self.textNImg.UpdateText(newID, self.items[newID], invert=True)
 
     def select_up(self):
         old = self.selected
