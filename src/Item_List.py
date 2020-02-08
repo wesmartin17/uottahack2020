@@ -19,7 +19,7 @@ class Item_List():
             self.textNImg.AddImg(horiz_line, 0, h, (128, 1),
                                  Id="Line{}".format(str(i)))
         # TEXT
-        for i in range(items):
+        for i in range(len(items)):
             invert = False
             if i % 2:
                 invert = True
