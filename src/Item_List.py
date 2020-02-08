@@ -24,4 +24,4 @@ class Item_List():
             self.textNImg.AddText(i, 0, h, Id=i)
 
     def show(self):
-        textNImg.WriteAll()
+        self.textNImg.WriteAll()
