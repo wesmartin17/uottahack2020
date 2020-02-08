@@ -5,6 +5,17 @@ import RPi.GPIO as GPIO
 
 def main():
 
+    SW1 = 16
+    SW2 = 26
+    SW3 = 20
+    SW4 = 21
+
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(SW1, GPIO.IN)
+    GPIO.setup(SW2, GPIO.IN)
+    GPIO.setup(SW3, GPIO.IN)
+    GPIO.setup(SW4, GPIO.IN)
+
     while True:
         if (GPIO.input(SW1) == False) and (GPIO.input(SW2) == False):
             write_text(papirus, "Exiting ...", SIZE)
