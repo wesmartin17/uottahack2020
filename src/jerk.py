@@ -18,6 +18,7 @@ class Jerk:
     i2c = busio.I2C(board.SCL, board.SDA)
     accelerometer = adafruit_adxl34x.ADXL345(i2c)
     prevAcceleration = 0
+    stepnum = 0
 
     def stepTaken(self, prevAcc, curAcc):
         if(mag(curAcc)-mag(prevAcc) > jerkMax):
@@ -28,7 +29,6 @@ class Jerk:
             return False
 
     def __init__(self):  # Defines the initial object parameters
-        self.stepNum = 0
         self.prevAcceleration = self.accelerometer.acceleration
 
     def stepCount(self):  # Returns the string for number of steps
@@ -42,7 +42,7 @@ class Jerk:
 
     def getJerk(self):
         if(self.stepTaken(self.prevAcceleration, self.accelerometer.acceleration)):
-            stepNum = stepNum + 1
+            self.stepNum = self.stepNum + 1
             print("%f" % mag(accelerometer.acceleration))
             print("%f" % mag(prevAcceleration))
             print("you took step %i" % stepNum)
