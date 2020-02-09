@@ -30,13 +30,11 @@ class Jerk:
 	timeBet = 0.3
 	stepNum = 0
 
-<<<<<<< HEAD
 	def __init__(self):  # Defines the initial object parameters
 		print("initialized jerk")
-=======
-	def stepCount(self): #Returns the string for number of steps
-		return str("You've taken %i steps" %self.stepNum)
->>>>>>> d837ccff63706db34b1c85fd027e50036cf97645
+
+	def stepCount(self):  # Returns the string for number of steps
+		return str("You've taken %i steps" % self.stepNum)
 
 	def stepCount(self):  # Returns the string for number of steps
 		return str("You've taken %i steps" % self.stepNum
@@ -51,11 +49,11 @@ class Jerk:
 
 ## Uncomment when testing step tester ##
 	def getJerk(self):
-		if(stepTaken(prevAcceleration, accelerometer.acceleration)):
-			stepNum=stepNum + 1
+		if(self.stepTaken(prevAcceleration, self.accelerometer.acceleration)):
+			self.stepNum=self.stepNum + 1
 			print("%f" % mag(accelerometer.acceleration))
 			print("%f" % mag(prevAcceleration))
-			print("you took step %i" % stepNum)
+			print("you took step %i" % self.stepNum)
 			time.sleep(timeBet)
 		prevAcceleration=accelerometer.acceleration
-		return stepNum
+		return self.stepNum
