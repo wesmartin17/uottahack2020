@@ -1,11 +1,12 @@
 import sys
 
 def __main__:
-    if len(sys.argv) < 1:
-        sys.exit('usage: {p:s}'.format(p=sys.argv[0]))
+    if "__main__" == __name__:
+        if len(sys.argv) < 1:
+            sys.exit('usage: {p:s}'.format(p=sys.argv[0]))
 
-    try:
-        main(sys.argv[1:])
-    except KeyboardInterrupt:
-        sys.exit('interrupted')
-        pass
+        try:
+            main(sys.argv[1:])
+        except KeyboardInterrupt:
+            sys.exit('interrupted')
+            pass
