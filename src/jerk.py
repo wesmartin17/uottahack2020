@@ -6,7 +6,7 @@ import math
 
 
 def mag(vector):
-    return math.sqrt(vector[0] * * 2 + vector[1] * * 2 + vector[2] * * 2)
+    return math.sqrt(vector[0]**2 + vector[1]**2 + vector[2]**2)
 
 
 jerkMax = 3.6
