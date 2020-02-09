@@ -55,7 +55,7 @@ while True:
 #     def __init__(self):  # Defines the initial object parameters
 #         print("initialized jerk")
 
-    # def getJerk(self):
+    def getJerk(self):
         if(self.stepTaken(prevAcceleration, self.accelerometer.acceleration)):
             self.stepNum = self.stepNum + 1
             print("%f" % mag(accelerometer.acceleration))
