@@ -18,7 +18,7 @@ class Jerk:
     i2c = busio.I2C(board.SCL, board.SDA)
     accelerometer = adafruit_adxl34x.ADXL345(i2c)
     prevAcceleration = 0
-    stepnum = 0
+    stepNum = 0
 
     def stepTaken(self, prevAcc, curAcc):
         if(mag(curAcc)-mag(prevAcc) > jerkMax):
