@@ -5,6 +5,7 @@ class Item_List():
 
     items = []
     text = PapirusTextPos(False)
+    items_per_screen = 0
     selected = 0
 
     def __init__(self, items, items_per_screen=3):
@@ -14,6 +15,7 @@ class Item_List():
 
     def draw_text(self):
         items = self.items
+        num_lines = self.items_per_screen
         # TEXT
         for i in range(len(items)):
             txt = items[i]
