@@ -91,11 +91,8 @@ def demo(papirus):
     previous_second = 0
     previous_day = 0
 
-    jerk = Jerk()
-
-    while True:
-    	j = jerk.Jerk()
-    
+    j = Jerk()
+        
     while True:
         
         # For button selection
