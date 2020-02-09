@@ -38,7 +38,7 @@ def main(argv):
     papirus = Papirus(rotation = int(argv[0]) if len(sys.argv) > 1 else 0)
 
     print('panel = {p:s} {w:d} x {h:d}  version={v:s} COG={g:d} FILM={f:d}'.format(p=papirus.panel, w=papirus.width, h=papirus.height, v=papirus.version, g=papirus.cog, f=papirus.film))
-    print(jerk)
+    print("Test")
     papirus.clear()
 
     demo(papirus)
