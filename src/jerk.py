@@ -40,7 +40,7 @@ class Jerk:
         self.stepNum = 0
 
     def getJerk(self):
-        if(stepTaken(prevAcceleration, accelerometer.acceleration)):
+        if(self.stepTaken(prevAcceleration, accelerometer.acceleration)):
             stepNum = stepNum + 1
             print("%f" % mag(accelerometer.acceleration))
             print("%f" % mag(prevAcceleration))
