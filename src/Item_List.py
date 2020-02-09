@@ -1,4 +1,4 @@
-from papirus import Papirus, PapirusComposite
+from papirus import Papirus, PapirusComposite, PapirusTextPos
 
 
 class Item_List():
