@@ -99,7 +99,8 @@ def demo(papirus):
 
         if (GPIO.input(SW1) == False):
             write_text(papirus, "Exiting ...", SIZE)
-            sleep(0.2)
+       
+            print("SW1")
             papirus.clear()
 
             os.system("shutdown - h now")      
