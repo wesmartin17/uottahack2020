@@ -20,11 +20,11 @@ class Jerk:
 
 	def stepTaken(prevAcc, curAcc):
     	if(mag(curAcc)-mag(prevAcc) > jerkMax):
-		return True
-	if(mag(curAcc)-mag(prevAcc) < -jerkMax):
-		return True
-	else:
-		return False
+			return True
+		if(mag(curAcc)-mag(prevAcc) < -jerkMax):
+			return True
+		else:
+			return False
 
 	timeInc = 0.06
 	timeBet = 0.3
