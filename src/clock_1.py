@@ -11,6 +11,23 @@ import time
 from papirus import Papirus
 import jerk
 
+from papirus import PapirusTextPos
+import Item_List as IL
+import RPi.GPIO as GPIO
+from time import sleep
+
+# Buttons
+    SW1 = 16
+    SW2 = 26
+    SW3 = 20
+    SW4 = 21
+
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(SW1, GPIO.IN)
+    GPIO.setup(SW2, GPIO.IN)
+    GPIO.setup(SW3, GPIO.IN)
+    GPIO.setup(SW4, GPIO.IN)
+
 # Check EPD_SIZE is defined
 EPD_SIZE = 0.0
 if os.path.exists('/etc/default/epd-fuse'):
@@ -66,7 +83,29 @@ def demo(papirus):
     previous_second = 0
     previous_day = 0
     jerk = Jerk()
+
     while True:
+        if (GPIO.input(SW1) == False) and (GPIO.input(SW2) == False):
+            write_text(papirus, "Exiting ...", SIZE)
+            sleep(0.2)
+            papirus.clear()
+            os.system("shutdown - h now")
+
+        if GPIO.input(SW4) == False:
+            print("select down pressed")
+            menu.select_down()
+            print(menu.selected)
+
+        if GPIO.input(SW3) == False:
+            print("select up pressed")
+            menu.select_up()
+            print(menu.selected)
+
+        sleep(0.01)
+
+
+
+
         while True:
             now = datetime.today()
             if now.second != previous_second:
