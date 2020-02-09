@@ -28,7 +28,7 @@ class Jerk:
             return False
 
     def __init__(self):  # Defines the initial object parameters
-        self.stepNum = stepNum
+        self.stepNum = 0
 
     def stepCount(self):  # Returns the string for number of steps
         return str("You've taken %i steps" % self.stepNum)
