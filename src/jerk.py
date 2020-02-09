@@ -30,8 +30,13 @@ class Jerk:
 	timeBet = 0.3
 	stepNum = 0
 
+<<<<<<< HEAD
 	def __init__(self):  # Defines the initial object parameters
 		print("initialized jerk")
+=======
+	def stepCount(self): #Returns the string for number of steps
+		return str("You've taken %i steps" %self.stepNum)
+>>>>>>> d837ccff63706db34b1c85fd027e50036cf97645
 
 	def stepCount(self):  # Returns the string for number of steps
 		return str("You've taken %i steps" % self.stepNum
