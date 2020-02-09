@@ -19,12 +19,12 @@ class Jerk:
 	prevAcceleration = accelerometer.acceleration
 
 	def stepTaken(self, prevAcc, curAcc):
-    	if(mag(curAcc)-mag(prevAcc) > jerkMax):
-			return True
-		if(mag(curAcc)-mag(prevAcc) < -jerkMax):
-			return True
-		else:
-			return False
+	    if(mag(curAcc)-mag(prevAcc) > jerkMax):
+    		return True
+	    if(mag(curAcc)-mag(prevAcc) < -jerkMax):
+    		return True
+	    else:
+		return False
 
 	timeInc = 0.06
 	timeBet = 0.3
@@ -38,10 +38,6 @@ class Jerk:
 
 	def stepCount(self):  # Returns the string for number of steps
 		return str("You've taken %i steps" % self.stepNum
-
-	def stepNum(self):  # Returns the integer value for stepNum
-		return self.stepNum
-
 
 	def reset(self):  # Resets the number of steps taken
 		self.stepNum=0
