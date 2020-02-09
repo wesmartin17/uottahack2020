@@ -26,14 +26,14 @@ class Item_List():
         for i in range(len(items)):
             txt = items[i]
             if i == self.selected:
-                txt = u"\u003E"+txt
+                txt = "! "+txt
             h = (128/num_lines * i) + 10
             self.textNImg.AddText(items[i], 10, h, Id=i)
         self.textNImg.WriteAll()
 
     def redraw_text(self, oldID, newID):
         self.textNImg.UpdateText(oldID, self.items[oldID])
-        self.textNImg.UpdateText(newID, u"\u003E"+self.items[newID])
+        self.textNImg.UpdateText(newID, "! "+self.items[newID])
 
     def select_up(self):
         old = self.selected
