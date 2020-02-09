@@ -18,7 +18,7 @@ class Jerk:
 	accelerometer = adafruit_adxl34x.ADXL345(i2c)
 	prevAcceleration = accelerometer.acceleration
 
-	def stepTaken(prevAcc, curAcc):
+	def stepTaken(self, prevAcc, curAcc):
     	if(mag(curAcc)-mag(prevAcc) > jerkMax):
 			return True
 		if(mag(curAcc)-mag(prevAcc) < -jerkMax):
