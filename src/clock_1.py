@@ -11,6 +11,7 @@ import time
 from papirus import Papirus
 import jerk
 
+
 from papirus import PapirusTextPos
 import Item_List as IL
 import RPi.GPIO as GPIO
@@ -27,6 +28,13 @@ from time import sleep
     GPIO.setup(SW2, GPIO.IN)
     GPIO.setup(SW3, GPIO.IN)
     GPIO.setup(SW4, GPIO.IN)
+
+
+    
+    
+    
+    
+  
 
 # Check EPD_SIZE is defined
 EPD_SIZE = 0.0
@@ -50,10 +58,10 @@ CLOCK_FONT_FILE = '/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf'
 DATE_FONT_FILE = '/usr/share/fonts/truetype/freefont/FreeMono.ttf'
 
 
-def main(jerk):
+def main():
     """main program - draw and display time and date"""
 
-    papirus = Papirus(rotation=int(argv[0]) if len(sys.argv) > 1 else 0)
+    papirus = Papirus()
 
     print('panel = {p:s} {w:d} x {h:d}  version={v:s} COG={g:d} FILM={f:d}'.format(
         p=papirus.panel, w=papirus.width, h=papirus.height, v=papirus.version, g=papirus.cog, f=papirus.film))
@@ -82,14 +90,26 @@ def demo(papirus):
     draw.rectangle((0, 0, width, height), fill=WHITE, outline=WHITE)
     previous_second = 0
     previous_day = 0
+
     jerk = Jerk()
 
     while True:
+    j = jerk.Jerk()
+    
+    while True:
+        
+        # For button selection
+
         if (GPIO.input(SW1) == False) and (GPIO.input(SW2) == False):
             write_text(papirus, "Exiting ...", SIZE)
             sleep(0.2)
             papirus.clear()
+
             os.system("shutdown - h now")
+
+
+            os.system("sudo shutdown -h now")
+            
 
         if GPIO.input(SW4) == False:
             print("select down pressed")
@@ -101,10 +121,9 @@ def demo(papirus):
             menu.select_up()
             print(menu.selected)
 
+
         sleep(0.01)
-
-
-
+        
 
         while True:
             now = datetime.today()
@@ -125,7 +144,8 @@ def demo(papirus):
 
         draw.text((5, 10), '{h:02d}:{m:02d}:{s:02d}'.format(
             h=now.hour, m=now.minute, s=now.second), fill=BLACK, font=clock_font)
-        draw.text((10, 50), str(jerk.getJerk()))
+        draw.rectangle((10, 50, width-2, height-2), fill=WHITE)
+        draw.text((10, 50), "steps today: {}".format(str(j.getJerk())))
 
         # display image on the panel
         papirus.display(image)
@@ -142,7 +162,7 @@ if "__main__" == __name__:
         sys.exit('usage: {p:s}'.format(p=sys.argv[0]))
 
     try:
-        main(sys.argv[1:])
+        main()
     except KeyboardInterrupt:
         sys.exit('interrupted')
         pass
