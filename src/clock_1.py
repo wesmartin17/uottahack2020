@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import os
 import sys
+import Jerk
 
 from PIL import Image
 from PIL import ImageDraw
@@ -81,7 +82,7 @@ def demo(papirus):
 
         draw.text((5, 10), '{h:02d}:{m:02d}:{s:02d}'.format(h=now.hour, m=now.minute, s=now.second), fill=BLACK, font=clock_font)
         
-        draw.text((10,50), "Hello World")
+        draw.text((10,50), Jerk.stepCount(self))
         # display image on the panel
         papirus.display(image)
         if now.second < previous_second:
