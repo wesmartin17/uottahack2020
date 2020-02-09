@@ -98,7 +98,7 @@ def demo(papirus):
         # For button selection
 
         if (GPIO.input(SW1) == False):
-            write_text(papirus, "Exiting ...", SIZE)
+            # write_text(papirus, "Exiting ...", SIZE)
        
             print("SW1")
             papirus.clear()
