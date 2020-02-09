@@ -75,6 +75,8 @@ def demo(papirus):
             draw.rectangle((2, 2, width - 2, height - 2), fill=WHITE, outline=BLACK)
             draw.text((10, clock_font_size + 10), '{y:04d}-{m:02d}-{d:02d}'.format(y=now.year, m=now.month, d=now.day), fill=BLACK, font=date_font)
             previous_day = now.day
+            
+            draw.text((15,10), "Hello World")
         else:
             draw.rectangle((5, 10, width - 5, 10 + clock_font_size), fill=WHITE, outline=WHITE)
 
