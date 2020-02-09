@@ -30,12 +30,10 @@ class Jerk:
 
     def __init__(self):  # Defines the initial object parameters
         self.prevAcceleration = self.accelerometer.acceleration
+        self.stepNum = 0
 
     def stepCount(self):  # Returns the string for number of steps
         return str("You've taken %i steps" % self.stepNum)
-
-    def stepNum(self):  # Returns the integer value for stepNum
-        return self.stepNum
 
     def reset(self):  # Resets the number of steps taken
         self.stepNum = 0
