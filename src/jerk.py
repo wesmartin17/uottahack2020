@@ -46,5 +46,5 @@ class Jerk:
             print("%f" % mag(accelerometer.acceleration))
             print("%f" % mag(prevAcceleration))
             print("you took step %i" % stepNum)
-        self.prevAcceleration = accelerometer.acceleration
+        self.prevAcceleration = self.accelerometer.acceleration
         return self.stepNum
