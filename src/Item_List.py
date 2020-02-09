@@ -34,6 +34,7 @@ class Item_List():
     def redraw_text(self, oldID, newID):
         self.textNImg.UpdateText(oldID, self.items[oldID])
         self.textNImg.UpdateText(newID, u"\u003e"+self.items[newID])
+        self.textNImg.WriteAll()
 
     def select_up(self):
         old = self.selected
