@@ -23,7 +23,7 @@ class Item_List():
                 txt = u"\u003E"+txt
             h = (128/num_lines * i) + 10
             self.text.AddText(txt, 10, h, Id=i)
-        self.textNImg.WriteAll()
+        self.text.WriteAll()
 
     def redraw_text(self, oldID, newID):
         self.text.UpdateText(oldID, self.items[oldID])
