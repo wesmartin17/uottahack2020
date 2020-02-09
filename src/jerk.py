@@ -39,8 +39,8 @@ class Jerk:
 	def stepCount(self):  # Returns the string for number of steps
 		return str("You've taken %i steps" % self.stepNum
 
-	def reset(self):  # Resets the number of steps taken
-		self.stepNum=0
+	# def reset(self):  # Resets the number of steps taken
+	# 	self.stepNum=0
 
 
 ## Uncomment when testing step tester ##
