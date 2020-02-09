@@ -5,7 +5,7 @@ class Item_List():
 
     items = []
     items_per_screen = 0
-    textNImg = PapirusComposite(False)
+    textNImg = PapirusComposite(True)
     selected = 0
 
     def __init__(self, items, items_per_screen=3):
@@ -34,7 +34,7 @@ class Item_List():
     def redraw_text(self, oldID, newID):
         self.textNImg.UpdateText(oldID, self.items[oldID])
         self.textNImg.UpdateText(newID, u"\u003e"+self.items[newID])
-        self.textNImg.partial_update()
+        self.textNImg.WriteAll()
 
     def select_up(self):
         old = self.selected
