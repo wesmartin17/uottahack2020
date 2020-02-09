@@ -9,9 +9,10 @@ from PIL import ImageFont
 from datetime import datetime
 import time
 from papirus import Papirus
+import jerk
 
 # Check EPD_SIZE is defined
-EPD_SIZE=0.0
+EPD_SIZE = 0.0
 if os.path.exists('/etc/default/epd-fuse'):
     exec(open('/etc/default/epd-fuse').read())
 if EPD_SIZE == 0.0:
@@ -29,15 +30,16 @@ WHITE = 1
 BLACK = 0
 
 CLOCK_FONT_FILE = '/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf'
-DATE_FONT_FILE  = '/usr/share/fonts/truetype/freefont/FreeMono.ttf'
+DATE_FONT_FILE = '/usr/share/fonts/truetype/freefont/FreeMono.ttf'
 
-def main(argv):
 
+def main(jerk):
     """main program - draw and display time and date"""
 
-    papirus = Papirus(rotation = int(argv[0]) if len(sys.argv) > 1 else 0)
+    papirus = Papirus(rotation=int(argv[0]) if len(sys.argv) > 1 else 0)
 
-    print('panel = {p:s} {w:d} x {h:d}  version={v:s} COG={g:d} FILM={f:d}'.format(p=papirus.panel, w=papirus.width, h=papirus.height, v=papirus.version, g=papirus.cog, f=papirus.film))
+    print('panel = {p:s} {w:d} x {h:d}  version={v:s} COG={g:d} FILM={f:d}'.format(
+        p=papirus.panel, w=papirus.width, h=papirus.height, v=papirus.version, g=papirus.cog, f=papirus.film))
     print("Test")
     papirus.clear()
 
@@ -63,22 +65,28 @@ def demo(papirus):
     draw.rectangle((0, 0, width, height), fill=WHITE, outline=WHITE)
     previous_second = 0
     previous_day = 0
-
+    jerk = Jerk()
     while True:
         while True:
             now = datetime.today()
             if now.second != previous_second:
                 break
-            time.sleep(0.1)
+            time.sleep(0.06)
 
         if now.day != previous_day:
-            draw.rectangle((2, 2, width - 2, height - 2), fill=WHITE, outline=BLACK)
-            draw.text((10, clock_font_size + 10), '{y:04d}-{m:02d}-{d:02d}'.format(y=now.year, m=now.month, d=now.day), fill=BLACK, font=date_font)
+            draw.rectangle((2, 2, width - 2, height - 2),
+                           fill=WHITE, outline=BLACK)
+            draw.text((10, clock_font_size + 10), '{y:04d}-{m:02d}-{d:02d}'.format(
+                y=now.year, m=now.month, d=now.day), fill=BLACK, font=date_font)
             previous_day = now.day
-        else:
-            draw.rectangle((5, 10, width - 5, 10 + clock_font_size), fill=WHITE, outline=WHITE)
 
-        draw.text((5, 10), '{h:02d}:{m:02d}:{s:02d}'.format(h=now.hour, m=now.minute, s=now.second), fill=BLACK, font=clock_font)
+        else:
+            draw.rectangle((5, 10, width - 5, 10 + clock_font_size),
+                           fill=WHITE, outline=WHITE)
+
+        draw.text((5, 10), '{h:02d}:{m:02d}:{s:02d}'.format(
+            h=now.hour, m=now.minute, s=now.second), fill=BLACK, font=clock_font)
+        draw.text((10, 50), str(jerk.getJerk()))
 
         # display image on the panel
         papirus.display(image)
@@ -87,6 +95,7 @@ def demo(papirus):
         else:
             papirus.partial_update()
         previous_second = now.second
+
 
 # main
 if "__main__" == __name__:
