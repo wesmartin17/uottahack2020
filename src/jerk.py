@@ -25,8 +25,8 @@ def stepTaken(prevAcc,curAcc):
 
 
 
-timeInc = 0.06
-timeBet = 0.3
+	timeInc = 0.06
+	timeBet = 0.3
 while True:
 	if(stepTaken(prevAcceleration,accelerometer.acceleration)):
 		stepNum = stepNum + 1
