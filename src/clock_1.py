@@ -36,7 +36,7 @@ DATE_FONT_FILE = '/usr/share/fonts/truetype/freefont/FreeMono.ttf'
 def main():
     """main program - draw and display time and date"""
 
-    papirus = Papirus(rotation=int(argv[0]) if len(sys.argv) > 1 else 0)
+    papirus = Papirus()
 
     print('panel = {p:s} {w:d} x {h:d}  version={v:s} COG={g:d} FILM={f:d}'.format(
         p=papirus.panel, w=papirus.width, h=papirus.height, v=papirus.version, g=papirus.cog, f=papirus.film))
@@ -103,7 +103,7 @@ if "__main__" == __name__:
         sys.exit('usage: {p:s}'.format(p=sys.argv[0]))
 
     try:
-        main(sys.argv[1:])
+        main()
     except KeyboardInterrupt:
         sys.exit('interrupted')
         pass
