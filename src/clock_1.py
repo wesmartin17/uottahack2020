@@ -18,16 +18,16 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 # Buttons
-    SW1 = 16
-    SW2 = 26
-    SW3 = 20
-    SW4 = 21
+SW1 = 16
+SW2 = 26
+SW3 = 20
+SW4 = 21
 
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(SW1, GPIO.IN)
-    GPIO.setup(SW2, GPIO.IN)
-    GPIO.setup(SW3, GPIO.IN)
-    GPIO.setup(SW4, GPIO.IN)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(SW1, GPIO.IN)
+GPIO.setup(SW2, GPIO.IN)
+GPIO.setup(SW3, GPIO.IN)
+GPIO.setup(SW4, GPIO.IN)
 
 
     
