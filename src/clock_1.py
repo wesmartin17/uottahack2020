@@ -102,7 +102,7 @@ def demo(papirus):
        
             print("SW1")
             papirus.clear()
-            os.system("systemctl poweroff")      
+            os.system("shutdown now")      
 
         if GPIO.input(SW4) == False:
             print("select down pressed")
