@@ -27,7 +27,7 @@ class Jerk:
 		self.stepNum = stepNum
 
 	def stepCount(self): #Returns the string for number of steps
-		return str("You've taken %i steps" %self.stepNum
+		return str("You've taken %i steps" %self.stepNum)
 
 	def stepNum(self): #Returns the integer value for stepNum
 		return self.stepNum
