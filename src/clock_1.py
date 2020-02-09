@@ -76,12 +76,12 @@ def demo(papirus):
             draw.text((10, clock_font_size + 10), '{y:04d}-{m:02d}-{d:02d}'.format(y=now.year, m=now.month, d=now.day), fill=BLACK, font=date_font)
             previous_day = now.day
             
-            draw.text((15,10), "Hello World")
         else:
             draw.rectangle((5, 10, width - 5, 10 + clock_font_size), fill=WHITE, outline=WHITE)
 
         draw.text((5, 10), '{h:02d}:{m:02d}:{s:02d}'.format(h=now.hour, m=now.minute, s=now.second), fill=BLACK, font=clock_font)
-
+        
+        draw.text((15,10), "Hello World")
         # display image on the panel
         papirus.display(image)
         if now.second < previous_second:
