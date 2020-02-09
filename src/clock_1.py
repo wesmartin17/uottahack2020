@@ -102,20 +102,16 @@ def demo(papirus):
             sleep(0.2)
             papirus.clear()
 
-            os.system("shutdown - h now")
-
-
-            os.system("sudo shutdown -h now")
-            
+            os.system("shutdown - h now")      
 
         if GPIO.input(SW4) == False:
             print("select down pressed")
-            menu.select_down()
+            # menu.select_down()
             print(menu.selected)
 
         if GPIO.input(SW3) == False:
             print("select up pressed")
-            menu.select_up()
+            # menu.select_up()
             print(menu.selected)
 
 
