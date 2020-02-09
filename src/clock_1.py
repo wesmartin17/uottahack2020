@@ -87,7 +87,7 @@ def demo(papirus):
         draw.text((5, 10), '{h:02d}:{m:02d}:{s:02d}'.format(
             h=now.hour, m=now.minute, s=now.second), fill=BLACK, font=clock_font)
         draw.rectangle((10, 50, width-2, height-2), fill=WHITE)
-        draw.text((10, 50), str(j.getJerk()))
+        draw.text((10, 50), "steps today: {}".format(str(j.getJerk())))
 
         # display image on the panel
         papirus.display(image)
