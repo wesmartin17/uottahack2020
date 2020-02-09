@@ -86,7 +86,7 @@ def demo(papirus):
 
         draw.text((5, 10), '{h:02d}:{m:02d}:{s:02d}'.format(
             h=now.hour, m=now.minute, s=now.second), fill=BLACK, font=clock_font)
-        draw.text((10, 50), jerk.getJerk())
+        draw.text((10, 50), str(jerk.getJerk()))
 
         # display image on the panel
         papirus.display(image)
