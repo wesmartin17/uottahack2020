@@ -33,7 +33,7 @@ def main():
             print("select up pressed")
             menu.select_up()
             print(menu.selected)
-        sleep(0.1)
+        sleep(0.01)
 
 
 main()
