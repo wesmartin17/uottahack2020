@@ -2,7 +2,6 @@ from __future__ import print_function
 
 import os
 import sys
-import Jerk
 
 from PIL import Image
 from PIL import ImageDraw
