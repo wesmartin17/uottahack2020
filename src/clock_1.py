@@ -33,7 +33,7 @@ CLOCK_FONT_FILE = '/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf'
 DATE_FONT_FILE = '/usr/share/fonts/truetype/freefont/FreeMono.ttf'
 
 
-def main(jerk):
+def main():
     """main program - draw and display time and date"""
 
     papirus = Papirus(rotation=int(argv[0]) if len(sys.argv) > 1 else 0)
@@ -65,7 +65,7 @@ def demo(papirus):
     draw.rectangle((0, 0, width, height), fill=WHITE, outline=WHITE)
     previous_second = 0
     previous_day = 0
-    jerk = Jerk()
+    jerk = jerk.Jerk()
     while True:
         while True:
             now = datetime.today()
