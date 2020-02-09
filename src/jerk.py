@@ -64,4 +64,5 @@ class Jerk:
             time.sleep(timeBet)
         prevAcceleration = accelerometer.acceleration
         return self.stepNum
+     
 
